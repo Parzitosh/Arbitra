@@ -18,9 +18,12 @@ CORS(app)
 # --- CONFIGURATION ---
 # Replace 'YOUR_PASSWORD' with your actual MySQL password. 
 # We use mysql+pymysql to tell SQLAlchemy which driver to use.
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
-app.config['SECRET_KEY'] = os.getenv('FLASK_SECRET_KEY')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
+# app.config['SECRET_KEY'] = os.getenv('FLASK_SECRET_KEY')
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = os.environ.get('DATABASE_URL', 'mysql+pymysql://root:yourpassword@localhost/escrow_db')
+app.config['SQLALCHEMY_DATABASE_URI'] = db
 
 # Initialize the database
 db = SQLAlchemy(app)
