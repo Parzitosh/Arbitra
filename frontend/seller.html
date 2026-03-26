@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sell Service | EscrowPay</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Escrow<span>Pay</span> Seller</div>
+        <div class="nav-links">
+            <button onclick="window.location.href='dashboard.html'">My Dashboard</button>
+            <button id="btn-logout" class="btn-primary" style="background: #e11d48;">Log Out</button>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="auth-container" style="max-width: 500px;">
+            <h2>List a New Service</h2>
+            <p>Your product will appear in the global marketplace</p>
+            <form id="post-product-form">
+                <div class="form-group">
+                    <label>Service Title</label>
+                    <input type="text" id="p-title" required placeholder="e.g. Logo Design">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" id="p-desc" required placeholder="What are you offering?">
+                </div>
+                <div class="form-group">
+                    <label>Price ($)</label>
+                    <input type="number" step="0.01" id="p-price" required>
+                </div>
+                <div class="form-group">
+                    <label>Icon (Emoji)</label>
+                    <input type="text" id="p-icon" placeholder="🎨">
+                </div>
+                <button type="submit" class="btn-submit">Post to Marketplace</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const userId = localStorage.getItem('escrow_user_id');
+        
+            // 1. Security Check: Redirect if not logged in
+            if (!userId) {
+                window.location.href = 'index.html';
+                return;
+            }
+        
+            // 2. Fix Logout Button Logic
+            const logoutBtn = document.getElementById('btn-logout');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', () => {
+                    localStorage.clear();
+                    window.location.href = 'index.html';
+                });
+            }
+        
+            // 3. Fix Product Posting Logic
+            const productForm = document.getElementById('post-product-form');
+            if (productForm) {
+                productForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    
+                    // Show loading state on button
+                    const submitBtn = productForm.querySelector('.btn-submit');
+                    const originalText = submitBtn.innerText;
+                    submitBtn.innerText = 'Posting Service...';
+                    submitBtn.disabled = true;
+                
+                    // Gather the form data
+                    const data = {
+                        title: document.getElementById('p-title').value,
+                        desc: document.getElementById('p-desc').value,
+                        price: parseFloat(document.getElementById('p-price').value), // Ensure it's a number
+                        sellerId: parseInt(userId),
+                        icon: document.getElementById('p-icon').value || '📦'
+                    };
+                
+                    try {
+                        // Check if api object exists before calling
+                        if (typeof api === 'undefined') {
+                            throw new Error("API utility not loaded. Please refresh.");
+                        }
+                    
+                        await api.addProduct(data);
+                        alert("Service listed successfully in the Marketplace!");
+                        window.location.href = 'dashboard.html';
+                    } catch (err) {
+                        alert("Submission Failed: " + err.message);
+                        submitBtn.innerText = originalText;
+                        submitBtn.disabled = false;
+                    }
+                });
+            }
+        });
+    </script>    
+</body>
+</html>

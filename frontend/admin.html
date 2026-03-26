@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | EscrowPay Arbiter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Escrow<span>Pay</span> Admin</div>
+        <div class="nav-links">
+            <span style="color: #f87171; font-weight: bold; margin-right: 20px;">Arbiter Mode</span>
+            <button id="btn-logout" class="btn-primary" style="background: #e11d48;">Log Out</button>
+        </div>
+    </nav>
+
+    <div style="padding: 40px 5%; max-width: 1200px; margin: 0 auto;">
+        <h2 style="margin-bottom: 30px;">⚖️ Pending Dispute Resolutions</h2>
+        
+        <div class="escrow-grid" id="admin-dispute-container">
+            </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.8.1/dist/web3.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/web3.js"?v=5></script>
+    <script src="js/admin.js"?v=3></script>
+</body>
+</html>

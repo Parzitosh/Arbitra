@@ -1,0 +1,293 @@
+/* --- GLOBAL VARIABLES --- */
+:root {
+    --bg-dark: #0f172a;       /* Deep slate background */
+    --card-bg: #1e293b;       /* Slightly lighter for cards */
+    --primary: #6366f1;       /* Modern Indigo accent */
+    --primary-hover: #4f46e5;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --radius: 16px;           /* The requested rounded corners */
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo span { color: var(--primary); }
+
+.nav-links button {
+    background: transparent;
+    color: var(--text-main);
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 20px;
+    transition: var(--transition);
+}
+
+.nav-links button:hover { color: var(--primary); }
+
+.nav-links .btn-primary {
+    background: var(--primary);
+    padding: 8px 20px;
+    border-radius: 50px; /* Fully rounded buttons */
+    font-weight: 600;
+}
+
+.nav-links .btn-primary:hover { background: var(--primary-hover); }
+
+/* --- MAIN CONTAINER & FORMS --- */
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.auth-container {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.auth-container h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.auth-container p {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+}
+
+.form-group { margin-bottom: 20px; }
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--text-main);
+    outline: none;
+    transition: var(--transition);
+}
+
+.form-group input:focus { border-color: var(--primary); }
+
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-submit:hover { background: var(--primary-hover); }
+
+.hidden { display: none !important; }
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--card-bg);
+}
+
+footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin: 0 10px;
+    transition: var(--transition);
+}
+
+footer a:hover { color: var(--primary); }
+
+/* --- DASHBOARD LAYOUT --- */
+.dashboard-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 40px 5%;
+    flex: 1;
+}
+
+.dashboard-sidebar {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+}
+
+.dashboard-main {
+    flex: 2;
+    min-width: 300px;
+}
+
+/* --- ESCROW CARDS (Glassmorphism) --- */
+.escrow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.escrow-card {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+    padding: 25px;
+    transition: transform 0.2s ease;
+}
+
+.escrow-card:hover { transform: translateY(-5px); }
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+/* --- STATUS BADGES --- */
+.badge {
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge-pending { background: rgba(234, 179, 8, 0.2); color: #facc15; }
+.badge-funded { background: rgba(56, 189, 248, 0.2); color: #38bdf8; }
+.badge-disputed { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+.badge-released { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
+
+.card-body p { margin-bottom: 10px; font-size: 0.95rem; color: var(--text-muted); }
+.card-body span { color: white; font-weight: 600; }
+
+.card-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.card-actions button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+}
+
+.btn-success { background: #22c55e; color: white; }
+.btn-success:hover { background: #16a34a; }
+.btn-danger { background: #ef4444; color: white; }
+.btn-danger:hover { background: #dc2626; }
+.btn-outline { background: transparent; border: 1px solid var(--text-muted); color: white; }
+.btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+/* --- MARKETPLACE PRODUCT CARDS --- */
+.product-card {
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+    border: 1px solid rgba(99, 102, 241, 0.2); /* Primary color subtle border */
+    border-radius: var(--radius);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
+}
+
+.product-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #4ade80; /* Success green */
+    margin: 10px 0;
+}
+
+.btn-buy {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    transition: var(--transition);
+}
+
+.btn-buy:hover {
+    background: var(--primary-hover);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+}

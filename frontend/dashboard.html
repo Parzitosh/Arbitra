@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | EscrowPay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Escrow<span>Pay</span></div>
+        <div class="nav-links">
+            <span id="welcome-text" style="margin-right: 20px; color: var(--text-muted);">Welcome, User</span>
+            <button onclick="window.location.href='seller.html'" class="btn-outline" style="padding: 8px 16px; border-radius: 50px;">List a Service</button>
+            <button id="btn-logout" class="btn-primary" style="background: #e11d48;">Log Out</button>
+        </div>
+    </nav>
+
+    <div style="padding: 40px 5%; max-width: 1400px; margin: 0 auto; width: 100%;">
+        
+        <h2 style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+            🛍️ Marketplace
+        </h2>
+        <div class="escrow-grid" id="marketplace-container" style="margin-bottom: 50px;">
+            <p style="color: var(--text-muted);">Fetching products from database...</p>
+        </div>
+
+        <hr style="border-color: rgba(255,255,255,0.05); margin-bottom: 40px;">
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h2>My Active Escrows</h2>
+            <button id="btn-custom-escrow" class="btn-outline" style="padding: 8px 16px; border-radius: 8px; cursor: pointer;">+ Custom Contract</button>
+        </div>
+        
+        <div id="custom-escrow-form" class="auth-container hidden" style="margin-bottom: 30px; max-width: 100%;">
+            <form id="create-escrow-form" style="display: flex; gap: 15px; align-items: flex-end;">
+                <div class="form-group" style="margin: 0; flex: 1;">
+                    <label>Seller ID</label>
+                    <input type="number" id="partner-id" required placeholder="e.g., 3">
+                </div>
+                <div class="form-group" style="margin: 0; flex: 1;">
+                    <label>Amount ($)</label>
+                    <input type="number" step="0.01" id="escrow-amount" required placeholder="0.00">
+                </div>
+                <button type="submit" class="btn-submit" style="flex: 1;">Create Escrow</button>
+            </form>
+        </div>
+
+        <div class="escrow-grid" id="escrow-container">
+            <p style="color: var(--text-muted);">Loading transactions...</p>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.8.1/dist/web3.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/web3.js"?v=5></script>
+    <script src="js/dashboard.js"?v=7></script>
+</body>
+</html>
