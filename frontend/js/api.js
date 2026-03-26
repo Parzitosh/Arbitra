@@ -1,6 +1,6 @@
 // --- BASE URL ---
 // Points to your Flask server
-const BASE_URL = 'http://127.0.0.1:5000/api';
+const BASE_URL = 'https://arbitra-z91b.onrender.com/api';
 
 const api = {
     // 1. Sign Up Function
