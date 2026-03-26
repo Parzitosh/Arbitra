@@ -93,4 +93,3 @@ The Solidity contracts powering Arbitra are designed using a Factory pattern to 
 * **Escrow:** Holds the logic for `confirmDelivery()` and `resolveDispute(bool refundBuyer)`. 
 
 *(Contracts are currently deployed and verified on the Ethereum Sepolia Testnet).*
-```
