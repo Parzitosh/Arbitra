@@ -92,4 +92,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
 
     loadDisputes();
+    setInterval(loadDisputes, 5000);
 });
