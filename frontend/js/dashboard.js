@@ -211,4 +211,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Initialize Dashboard
     loadEscrows();
+
+    // --- REAL-TIME POLLING ---
+    // Silently fetch new products and escrow updates every 5 seconds
+    setInterval(loadMarketplace, 5000);
+    setInterval(loadEscrows, 5000);
 });
