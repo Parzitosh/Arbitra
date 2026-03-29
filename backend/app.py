@@ -25,6 +25,11 @@ CORS(app)
 db = os.environ.get('DATABASE_URL', 'mysql+pymysql://root:yourpassword@localhost/escrow_db')
 app.config['SQLALCHEMY_DATABASE_URI'] = db
 
+app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
+    "pool_pre_ping": True,  # Forces SQLAlchemy to check if the DB is awake
+    "pool_recycle": 300,    # Reconnects automatically every 5 minutes
+}
+
 # Initialize the database
 db = SQLAlchemy(app)
 
