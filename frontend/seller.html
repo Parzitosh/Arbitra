@@ -2,43 +2,127 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sell Service | Arbitra</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Console | Arbitra</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="page-seller">
     <nav class="navbar">
-        <div class="logo">Arbi<span>tra</span> Seller</div>
+        <div class="nav-brand">
+            <div class="logo">Arbi<span>tra</span> Seller</div>
+            <div class="nav-tagline">Service publishing command center</div>
+        </div>
         <div class="nav-links">
-            <button onclick="window.location.href='dashboard.html'">My Dashboard</button>
-            <button id="btn-logout" class="btn-primary" style="background: #e11d48;">Log Out</button>
+            <div class="wallet-panel">
+                <div class="wallet-panel-label">Seller Rail</div>
+                <div class="wallet-panel-row">
+                    <span class="network-status"><span class="status-dot"></span> Listing Channel Active</span>
+                    <span>MetaMask Ready</span>
+                </div>
+            </div>
+            <button onclick="window.location.href='dashboard.html'" class="btn-outline">My Dashboard</button>
+            <button id="btn-logout" class="btn-primary btn-logout">Log Out</button>
         </div>
     </nav>
 
-    <div class="main-content">
-        <div class="auth-container" style="max-width: 500px;">
-            <h2>List a New Service</h2>
-            <p>Your product will appear in the global marketplace</p>
-            <form id="post-product-form">
-                <div class="form-group">
-                    <label>Service Title</label>
-                    <input type="text" id="p-title" required placeholder="e.g. Logo Design">
+    <main class="page-shell">
+        <section class="hero-panel">
+            <div class="hero-copy">
+                <p class="hero-kicker">Seller Dashboard</p>
+                <h1 class="hero-heading">Operate your service business like a premium Web3 storefront.</h1>
+                <p class="hero-subtitle">This workspace is tuned to feel like a SaaS command center, pairing clean publishing controls with clear signals around settlement, delivery, and listing visibility.</p>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-label">Active Listings</span>
+                    <strong class="stat-value">Marketplace Synced</strong>
+                    <span class="stat-meta">New services are shaped to stand out immediately in the buyer marketplace grid.</span>
                 </div>
-                <div class="form-group">
-                    <label>Description</label>
-                    <input type="text" id="p-desc" required placeholder="What are you offering?">
+                <div class="stat-card">
+                    <span class="stat-label">Total Sales</span>
+                    <strong class="stat-value">Escrow-backed</strong>
+                    <span class="stat-meta">Payments stay aligned with secure release mechanics instead of informal off-platform trust.</span>
                 </div>
-                <div class="form-group">
-                    <label>Price ($)</label>
-                    <input type="number" step="0.01" id="p-price" required>
+                <div class="stat-card">
+                    <span class="stat-label">Pending Deliveries</span>
+                    <strong class="stat-value">Tracked</strong>
+                    <span class="stat-meta">Delivery expectations stay visually tied to the protected escrow lifecycle buyers can monitor.</span>
                 </div>
-                <div class="form-group">
-                    <label>Icon (Emoji)</label>
-                    <input type="text" id="p-icon" placeholder="🎨">
+                <div class="stat-card">
+                    <span class="stat-label">Seller Focus</span>
+                    <strong class="stat-value">High Signal</strong>
+                    <span class="stat-meta">Titles, pricing, and offer framing are prioritized for instant credibility and conversion.</span>
                 </div>
-                <button type="submit" class="btn-submit">Post to Marketplace</button>
-            </form>
+            </div>
+        </section>
+
+        <div class="seller-grid">
+            <section class="section-card">
+                <div class="section-header">
+                    <div>
+                        <p class="section-kicker">Listing Studio</p>
+                        <h2>Publish a new service</h2>
+                        <p>Craft a polished marketplace card with a concise title, clear value proposition, price point, and recognizable visual icon.</p>
+                    </div>
+                    <span class="section-chip">Seller workspace</span>
+                </div>
+
+                <form id="post-product-form">
+                    <div class="form-group">
+                        <label>Service Title</label>
+                        <input type="text" id="p-title" required placeholder="e.g. Logo Design">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" id="p-desc" required placeholder="What are you offering?">
+                    </div>
+                    <div class="form-group">
+                        <label>Price (USD)</label>
+                        <input type="number" step="0.01" id="p-price" required placeholder="250.00">
+                    </div>
+                    <div class="form-group">
+                        <label>Icon (Emoji)</label>
+                        <input type="text" id="p-icon" placeholder="e.g. design, dev, audit">
+                    </div>
+                    <button type="submit" class="btn-submit">Post to Marketplace</button>
+                </form>
+            </section>
+
+            <div class="seller-stack">
+                <section class="section-card info-card">
+                    <p class="section-kicker">Seller Metrics</p>
+                    <h3 class="info-title">Command center focus</h3>
+                    <div class="insight-list">
+                        <div class="insight-item">
+                            <span class="insight-label">Active Listings</span>
+                            <strong class="insight-value">Visibility first</strong>
+                            <p>Use compact, specific offer names so buyers can identify what you do in one fast glance.</p>
+                        </div>
+                        <div class="insight-item">
+                            <span class="insight-label">Total Sales</span>
+                            <strong class="insight-value">Trust amplified</strong>
+                            <p>Escrow release mechanics reinforce credibility by connecting payment flow to confirmed delivery.</p>
+                        </div>
+                        <div class="insight-item">
+                            <span class="insight-label">Pending Deliveries</span>
+                            <strong class="insight-value">Expectation aligned</strong>
+                            <p>Clear descriptions help reduce disputes and keep the delivery pipeline smooth for both sides.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section-card info-card">
+                    <p class="section-kicker">Operational Notes</p>
+                    <h3 class="info-title">Listing checklist</h3>
+                    <div class="info-points">
+                        <p>Lead with the exact outcome the buyer receives, not internal process language.</p>
+                        <p>Keep pricing simple and high-contrast so conversion friction stays low.</p>
+                        <p>Choose an icon that makes the listing recognizable when repeated inside the product grid.</p>
+                    </div>
+                </section>
+            </div>
         </div>
-    </div>
+    </main>
 
     <script src="js/api.js"></script>
     <script>
@@ -78,7 +162,7 @@
                         desc: document.getElementById('p-desc').value,
                         price: parseFloat(document.getElementById('p-price').value), // Ensure it's a number
                         sellerId: parseInt(userId),
-                        icon: document.getElementById('p-icon').value || '📦'
+                        icon: document.getElementById('p-icon').value || '\uD83D\uDCE6'
                     };
                 
                     try {

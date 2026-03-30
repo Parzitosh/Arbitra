@@ -3,26 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel | Arbitra Arbiter</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Admin Mission Control | Arbitra</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="page-admin">
 
     <nav class="navbar">
-        <div class="logo">Arbi<span>tra</span> Admin</div>
+        <div class="nav-brand">
+            <div class="logo">Arbi<span>tra</span> Admin</div>
+            <div class="nav-tagline">Arbiter mission control</div>
+        </div>
         <div class="nav-links">
-            <span style="color: #f87171; font-weight: bold; margin-right: 20px;">Arbiter Mode</span>
-            <button id="btn-logout" class="btn-primary" style="background: #e11d48;">Log Out</button>
+            <div class="wallet-panel">
+                <div class="wallet-panel-label">Arbiter Console</div>
+                <div class="wallet-panel-row">
+                    <span class="network-status"><span class="status-dot"></span> Authority Verified</span>
+                    <span>Arbiter Mode</span>
+                </div>
+            </div>
+            <button id="btn-logout" class="btn-primary btn-logout">Log Out</button>
         </div>
     </nav>
 
-    <div style="padding: 40px 5%; max-width: 1200px; margin: 0 auto;">
-        <h2 style="margin-bottom: 30px;">⚖️ Pending Dispute Resolutions</h2>
-        
-        <div class="escrow-grid" id="admin-dispute-container">
+    <main class="page-shell">
+        <section class="hero-panel">
+            <div class="hero-copy">
+                <p class="hero-kicker">Admin Dashboard</p>
+                <h1 class="hero-heading">Resolve high-stakes disputes from a mission control surface.</h1>
+                <p class="hero-subtitle">The arbiter console uses a more authoritative warning-led accent system so dispute review, contract visibility, and final action paths read with immediate seriousness.</p>
             </div>
-    </div>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-label">Privilege Layer</span>
+                    <strong class="stat-value">Verified</strong>
+                    <span class="stat-meta">Admin-only surfaces are visually separated from buyer and seller flows for faster recognition.</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Dispute Queue</span>
+                    <strong class="stat-value">Live Review</strong>
+                    <span class="stat-meta">Pending cases surface in a clean, readable grid with contract value and both counterparties visible.</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Resolution Paths</span>
+                    <strong class="stat-value">Decisive</strong>
+                    <span class="stat-meta">Refund or seller release actions remain visually distinct so arbitration stays controlled and clear.</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Settlement Integrity</span>
+                    <strong class="stat-value">On-chain</strong>
+                    <span class="stat-meta">The interface reinforces the gravity of final rulings without touching the underlying dispute logic.</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <div class="section-header">
+                <div>
+                    <p class="section-kicker">Resolution Queue</p>
+                    <h2>Pending dispute resolutions</h2>
+                    <p>Dispute cards are framed for maximum clarity so buyer, seller, value, and contract details remain legible during final review.</p>
+                </div>
+                <span class="authority-pill">Admin privilege active</span>
+            </div>
+            <div class="escrow-grid" id="admin-dispute-container">
+                <p>Loading dispute queue...</p>
+            </div>
+        </section>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/web3@1.8.1/dist/web3.min.js"></script>
     <script src="js/api.js?v=prod1"></script>

@@ -3,56 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | Arbitra</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Buyer Dashboard | Arbitra</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="page-dashboard">
 
     <nav class="navbar">
-        <div class="logo">Arbi<span>tra</span></div>
+        <div class="nav-brand">
+            <div class="logo">Arbi<span>tra</span></div>
+            <div class="nav-tagline">Protected Web3 settlements</div>
+        </div>
         <div class="nav-links">
-            <span id="welcome-text" style="margin-right: 20px; color: var(--text-muted);">Welcome, User</span>
-            <button onclick="window.location.href='seller.html'" class="btn-outline" style="padding: 8px 16px; border-radius: 50px;">List a Service</button>
-            <button id="btn-logout" class="btn-primary" style="background: #e11d48;">Log Out</button>
+            <div class="wallet-panel">
+                <div class="wallet-panel-label">Connected Account</div>
+                <div class="wallet-panel-row">
+                    <span class="network-status"><span class="status-dot"></span> Sepolia Live</span>
+                    <span id="welcome-text">Welcome, User</span>
+                </div>
+            </div>
+            <button onclick="window.location.href='seller.html'" class="btn-outline">List a Service</button>
+            <button id="btn-logout" class="btn-primary btn-logout">Log Out</button>
         </div>
     </nav>
 
-    <div style="padding: 40px 5%; max-width: 1400px; margin: 0 auto; width: 100%;">
-        
-        <h2 style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
-            🛍️ Marketplace
-        </h2>
-        <div class="escrow-grid" id="marketplace-container" style="margin-bottom: 50px;">
-            <p style="color: var(--text-muted);">Fetching products from database...</p>
-        </div>
-
-        <hr style="border-color: rgba(255,255,255,0.05); margin-bottom: 40px;">
-
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-            <h2>My Active Escrows</h2>
-            <button id="btn-custom-escrow" class="btn-outline" style="padding: 8px 16px; border-radius: 8px; cursor: pointer;">+ Custom Contract</button>
-        </div>
-        
-        <div id="custom-escrow-form" class="auth-container hidden" style="margin-bottom: 30px; max-width: 100%;">
-            <form id="create-escrow-form" style="display: flex; gap: 15px; align-items: flex-end;">
-                <div class="form-group" style="margin: 0; flex: 1;">
-                    <label>Seller ID</label>
-                    <input type="number" id="partner-id" required placeholder="e.g., 3">
+    <main class="page-shell">
+        <section class="hero-panel">
+            <div class="hero-copy">
+                <p class="hero-kicker">Buyer Dashboard</p>
+                <h1 class="hero-heading">Secure premium services with escrow-native confidence.</h1>
+                <p class="hero-subtitle">Browse curated offers, launch custom contracts, and manage every live settlement from a wallet-first cockpit built for Web3 commerce.</p>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-label">Marketplace Lane</span>
+                    <strong class="stat-value">Live Discovery</strong>
+                    <span class="stat-meta">Premium service cards optimized for fast scanning and instant escrow-backed action.</span>
                 </div>
-                <div class="form-group" style="margin: 0; flex: 1;">
-                    <label>Amount ($)</label>
-                    <input type="number" step="0.01" id="escrow-amount" required placeholder="0.00">
+                <div class="stat-card">
+                    <span class="stat-label">Escrow Guard</span>
+                    <strong class="stat-value">Protected</strong>
+                    <span class="stat-meta">Funding, release, and dispute actions stay close to the transaction state at all times.</span>
                 </div>
-                <button type="submit" class="btn-submit" style="flex: 1;">Create Escrow</button>
-            </form>
-        </div>
+                <div class="stat-card">
+                    <span class="stat-label">Wallet Rail</span>
+                    <strong class="stat-value">MetaMask Ready</strong>
+                    <span class="stat-meta">The top bar keeps your connected flow visually front and center while you operate.</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Custom Deals</span>
+                    <strong class="stat-value">Flexible</strong>
+                    <span class="stat-meta">Spin up direct escrow arrangements for edge-case partnerships without leaving the dashboard.</span>
+                </div>
+            </div>
+        </section>
 
-        <div class="escrow-grid" id="escrow-container">
-            <p style="color: var(--text-muted);">Loading transactions...</p>
-        </div>
+        <section class="section-card">
+            <div class="section-header">
+                <div>
+                    <p class="section-kicker">Marketplace</p>
+                    <h2>Buyer marketplace</h2>
+                    <p>Every listing is framed as a polished card so the service identity, seller signal, and purchase action stay readable at a glance.</p>
+                </div>
+                <span class="section-chip">Wallet-first checkout</span>
+            </div>
+            <div class="escrow-grid" id="marketplace-container">
+                <p>Fetching products from database...</p>
+            </div>
+        </section>
 
-    </div>
+        <section class="section-card">
+            <div class="section-header">
+                <div>
+                    <p class="section-kicker">Active Escrows</p>
+                    <h2>Protected transactions</h2>
+                    <p>Fund, release, or dispute live settlements from a dedicated DeFi-style control surface designed for clarity.</p>
+                </div>
+                <div class="section-actions">
+                    <span class="section-chip">Dispute guard enabled</span>
+                    <button id="btn-custom-escrow" class="btn-outline">Create Custom Escrow</button>
+                </div>
+            </div>
+
+            <div id="custom-escrow-form" class="auth-container inline-surface hidden">
+                <form id="create-escrow-form" class="inline-form">
+                    <div class="form-group">
+                        <label>Seller ID</label>
+                        <input type="number" id="partner-id" required placeholder="e.g. 3">
+                    </div>
+                    <div class="form-group">
+                        <label>Amount (USD)</label>
+                        <input type="number" step="0.01" id="escrow-amount" required placeholder="0.00">
+                    </div>
+                    <button type="submit" class="btn-submit">Launch Escrow</button>
+                </form>
+            </div>
+
+            <div class="escrow-grid" id="escrow-container">
+                <p>Loading transactions...</p>
+            </div>
+        </section>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/web3@1.8.1/dist/web3.min.js"></script>
     <script src="js/api.js?v=prod1"></script>
