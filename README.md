@@ -5,6 +5,15 @@ Arbitra bridges the gap between traditional Web 2.0 user experiences and Web3 tr
 
 ---
 
+## 🌐 Live Deployment
+
+* **Frontend Application:** [https://arbitra-coral.vercel.app/](https://arbitra-coral.vercel.app/) (Hosted on Vercel)
+* **Backend API:** [https://arbitra-z91b.onrender.com](https://arbitra-z91b.onrender.com) (Hosted on Render)
+* **Database:** Cloud MySQL Database (Hosted on Aiven)
+* **Smart Contracts:** Deployed on Ethereum Sepolia Testnet
+
+---
+
 ## ✨ Key Features
 * **Zero-Trust Transactions:** Funds are locked in a dynamically generated Ethereum Smart Contract (via a Factory pattern) until both parties are satisfied.
 * **Role-Based Dashboards:** Distinct user experiences for Buyers, Sellers, and the Admin/Arbiter.
@@ -39,6 +48,14 @@ Arbitra bridges the gap between traditional Web 2.0 user experiences and Web3 tr
 3. **Fund (Web3):** The Buyer triggers MetaMask to deploy a unique Escrow Smart Contract, locking their SepoliaETH inside it.
 4. **Release (Web3):** Upon successful delivery, the Buyer signs a transaction to release the locked funds directly to the Seller's wallet.
 5. **Dispute (Web3):** If something goes wrong, the Arbiter steps in and executes a smart contract function to definitively route the funds to the rightful party.
+
+---
+
+## ⚡ Cloud Optimizations (Free-Tier Resilience)
+
+To ensure a seamless, "always-on" enterprise experience despite utilizing free-tier cloud hosting, Arbitra implements specific resilience strategies:
+* **Anti-Sleep Cron Job:** Render's free tier spins down web services after 15 minutes of inactivity. A background job (via `cron-job.org`) is configured to ping the backend API every 14 minutes, ensuring the server never goes to sleep and is instantly responsive for users.
+* **Database Connection Pre-Pinging:** Aiven aggressively drops idle database connections to save memory. Arbitra's Flask backend utilizes SQLAlchemy's `pool_pre_ping=True` and `pool_recycle` configurations to elegantly test and rebuild dropped connections in the background before routing user requests, completely eliminating "MySQL Server has gone away" crash errors.
 
 ---
 
